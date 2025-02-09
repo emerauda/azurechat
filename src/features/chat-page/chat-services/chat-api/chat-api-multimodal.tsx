@@ -21,12 +21,6 @@ export const ChatApiMultimodal = (props: {
       max_tokens: 16384,
       messages: [
         {
-          role: "system",
-          content:
-            chatThread.personaMessage +
-            "\n You are an expert in extracting insights from images that are uploaded to the chat. \n You will answer questions about the image that is provided.",
-        },
-        {
           role: "user",
           content: [
             { type: "text", text: userMessage },
