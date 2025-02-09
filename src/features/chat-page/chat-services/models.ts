@@ -19,7 +19,7 @@ export interface ChatMessageModel {
   type: typeof MESSAGE_ATTRIBUTE;
 }
 
-export type ChatRole = "user" | "assistant" | "function" | "tool";
+export type ChatRole = "system" | "user" | "assistant" | "function" | "tool";
 
 export interface ChatThreadModel {
   id: string;
