@@ -148,7 +148,7 @@ resource webApp 'Microsoft.Web/sites@2020-06-01' = {
         }
         {
           name: 'AZURE_OPENAI_DALLE_API_KEY'
-          value: '@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_OPENAI_DALLE_API_KEY.name})'
+          value: disableLocalAuth ? '' :'@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_OPENAI_DALLE_API_KEY.name})'
         }
         {
           name: 'AZURE_OPENAI_DALLE_API_INSTANCE_NAME'
@@ -176,11 +176,11 @@ resource webApp 'Microsoft.Web/sites@2020-06-01' = {
         }
         {
           name: 'AZURE_COSMOSDB_KEY'
-          value: '@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_COSMOSDB_KEY.name})'
+          value: disableLocalAuth ? '' :'@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_COSMOSDB_KEY.name})'
         }
         {
           name: 'AZURE_SEARCH_API_KEY'
-          value: '@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_SEARCH_API_KEY.name})'
+          value: disableLocalAuth ? '' :'@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_SEARCH_API_KEY.name})'
         }
         { 
           name: 'AZURE_SEARCH_NAME'
@@ -196,7 +196,7 @@ resource webApp 'Microsoft.Web/sites@2020-06-01' = {
         }        
         {
           name: 'AZURE_DOCUMENT_INTELLIGENCE_KEY'
-          value: '@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_DOCUMENT_INTELLIGENCE_KEY.name})'
+          value: disableLocalAuth ? '' :'@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_DOCUMENT_INTELLIGENCE_KEY.name})'
         }
         {
           name: 'AZURE_SPEECH_REGION'
@@ -212,7 +212,7 @@ resource webApp 'Microsoft.Web/sites@2020-06-01' = {
         }
         {
           name: 'AZURE_STORAGE_ACCOUNT_KEY'
-          value: '@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_STORAGE_ACCOUNT_KEY.name})'
+          value: disableLocalAuth ? '' :'@Microsoft.KeyVault(VaultName=${kv.name};SecretName=${kv::AZURE_STORAGE_ACCOUNT_KEY.name})'
         }
       ]
     }
@@ -275,7 +275,7 @@ resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
     enabledForTemplateDeployment: false
   }
 
-  resource AZURE_OPENAI_API_KEY 'secrets' = {
+  resource AZURE_OPENAI_API_KEY 'secrets' = if (!disableLocalAuth) {
     name: 'AZURE-OPENAI-API-KEY'
     properties: {
       contentType: 'text/plain'
@@ -283,7 +283,7 @@ resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
     }
   }
 
-  resource AZURE_OPENAI_DALLE_API_KEY 'secrets' = {
+  resource AZURE_OPENAI_DALLE_API_KEY 'secrets' = if (!disableLocalAuth){
     name: 'AZURE-OPENAI-DALLE-API-KEY'
     properties: {
       contentType: 'text/plain'
@@ -299,7 +299,7 @@ resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
     }
   }
 
-  resource AZURE_COSMOSDB_KEY 'secrets' = {
+  resource AZURE_COSMOSDB_KEY 'secrets' = if (!disableLocalAuth){
     name: 'AZURE-COSMOSDB-KEY'
     properties: {
       contentType: 'text/plain'
@@ -307,7 +307,7 @@ resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
     }
   }
 
-  resource AZURE_DOCUMENT_INTELLIGENCE_KEY 'secrets' = {
+  resource AZURE_DOCUMENT_INTELLIGENCE_KEY 'secrets' = if (!disableLocalAuth){
     name: 'AZURE-DOCUMENT-INTELLIGENCE-KEY'
     properties: {
       contentType: 'text/plain'
@@ -323,7 +323,7 @@ resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
     }
   }
 
-  resource AZURE_SEARCH_API_KEY 'secrets' = {
+  resource AZURE_SEARCH_API_KEY 'secrets' = if (!disableLocalAuth){
     name: 'AZURE-SEARCH-API-KEY'
     properties: {
       contentType: 'text/plain'
@@ -331,7 +331,7 @@ resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
     }
   }
 
-  resource AZURE_STORAGE_ACCOUNT_KEY 'secrets' = {
+  resource AZURE_STORAGE_ACCOUNT_KEY 'secrets' = if (!disableLocalAuth){
     name: 'AZURE-STORAGE-ACCOUNT-KEY'
     properties: {
       contentType: 'text/plain'
