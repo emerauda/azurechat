@@ -1,6 +1,6 @@
 # 👨🏻‍💻 Run Locally
 
-Clone this repository locally or fork to your Github account. Run all of the the steps below from the `src` directory.
+Clone this repository locally or fork to your GitHub account. Run all of the the steps below from the `src` directory.
 
 ## Prerequisites
 
@@ -11,12 +11,12 @@ Clone this repository locally or fork to your Github account. Run all of the the
 ## Steps to Run Locally
 
 1. Change directory to the `src` folder
-2. Rename the file `.env.example` to `.env.local` and populate the environment variables based on the deployed resources in Azure.
+2. Rename/copy the file `.env.example` to `.env.local` and populate the environment variables based on the deployed resources in Azure.
 3. Install npm packages by running `npm install`
 4. Start the app by running `npm run dev`
 5. Access the app on [http://localhost:3000](http://localhost:3000)
 
-You should now be prompted to login with your chosen OAuth provider.
+You should now be prompted to log in with your chosen authentication method (per the pre-requisite configuration).
 
 > **NOTE**
 > If using Basic Auth (DEV ONLY), any username you enter will create a new user id (hash of username@localhost). You can use this to simulate multiple users. Once successfully logged in, you can start creating new conversations.

@@ -49,4 +49,6 @@ As you can see this persona provides a specific example of how to write a ReactJ
 
 ## Continue to the next step...
 
+## Continue to the next step...
+
 👉 [Next: Extensions](./7-extensions.md)
