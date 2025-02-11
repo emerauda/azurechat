@@ -261,4 +261,8 @@ In this example you will be able to create and update GitHub Issues using the Gi
       }
       ```
 
-    [Next](/docs/9-environment-variables.md)
+6.  **Publish**: Publish the extension to make it available to use in your conversations. Publish is an admin-only feature. If you are not an admin you will not see the publish button.
+
+## Continue to the next step...
+
+👉 [Next: Environment Variables](./8-environment-variables.md)
