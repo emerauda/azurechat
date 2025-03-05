@@ -4,8 +4,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import { Provider } from "next-auth/providers/index";
 import { hashValue } from "./helpers";
-import { image } from "@markdoc/markdoc/dist/src/schema";
-import { access } from "fs";
 
 const configureIdentityProvider = () => {
   const providers: Array<Provider> = [];
